@@ -1,3 +1,5 @@
+This is a fork of https://github.com/silverstripe/silverstripe-colorpicker with added Icon Picker.
+
 # Colorpicker Module
 
 [![Build Status](https://travis-ci.org/silverstripe/silverstripe-colorpicker.svg?branch=master)](https://travis-ci.org/silverstripe/silverstripe-colorpicker)
@@ -14,6 +16,19 @@ To install this module, you can do so with Composer:
 
 ```
 composer require silverstripe/colorpicker
+```
+
+To install this fork of the module, add custom repository to your `composer.json` first:
+
+```
+...
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/SomarDesignStudios/silverstripe-colorpicker.git"
+    }
+]
+...
 ```
 
 ## Usage
@@ -52,6 +67,54 @@ You can use the `ColorPickerField` as follows:
                         ]
                     ]
                 )
+            ]
+        );
+
+        return $fields;
+    }
+```
+
+The `IconPickerField` just adds additional classes to each option element, you have to add CSS for your icons to the CMS e.g. with .yml file:
+
+```yml
+SilverStripe\Admin\LeftAndMain:
+    extra_requirements_css:
+        - app/client/dist/css/my_icons.css
+```
+
+Example of `ColorPickerField` use:
+
+```php
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->addFieldsToTab(
+            'Root.Main',
+            [
+                ColorPickerField::create(
+                    'MyIconField',
+                    _t(
+                        __CLASS__ . '.MyIconField',
+                        'My Icon Field'
+                    ),
+                    [
+                        [
+                            'Title' => 'Icon 1',
+                            'CSSClass' => 'icon1',
+                        ],
+                        [
+                            'Title' => 'Icon 2',
+                            'CSSClass' => 'icon2',
+                        ],
+                        [
+                            'Title' => 'Icon 3',
+                            'CSSClass' => 'icon$',
+                        ]
+                    ]
+                )
+                    ->setOptionClass('my-icons')
+                    ->setCSSClassPrefix('icon')
             ]
         );
 

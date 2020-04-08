@@ -8,6 +8,10 @@
   &__color-icon {
     width: 40px;
     height: 40px;
+    font-size: 40px;
+    overflow: hidden;
+    background-color: $white;
+    color: $gray-600;
     border: 1px solid $border-color-light;
   }
 
@@ -39,6 +43,10 @@
   &__option-icon {
     width: 40px;
     height: 40px;
+    font-size: 40px;
+    overflow: hidden;
+    background-color: $white;
+    color: $gray-600;
     border: 1px solid $border-color-light;
   }
 

@@ -40,7 +40,7 @@ class ColorPickerField extends Component {
         className="color-picker-field-button"
       >
         <div
-          className="color-picker-field-button__color-icon"
+          className={`color-picker-field-button__color-icon ${color.OptionClass}`}
           style={{ backgroundColor: color ? color.Color : 'transparent' }}
         />
         <div className="color-picker-field-button__color-label">
@@ -56,7 +56,7 @@ class ColorPickerField extends Component {
 
     const buttonContent = (color) => [
       <span
-        className="color-picker-field-popover__option-icon"
+        className={`color-picker-field-popover__option-icon ${color.OptionClass}`}
         style={{ backgroundColor: color.Color }}
       />,
       <span className="color-picker-field-popover__option-label">
