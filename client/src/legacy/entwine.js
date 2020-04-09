@@ -13,6 +13,7 @@ jQuery.entwine('ss', ($) => {
         colors: schemaData.source,
         value: schemaData.value,
         name: schemaData.name,
+        searchPlaceholder: schemaData.searchPlaceholder
       };
 
       ReactDOM.render(

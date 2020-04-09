@@ -32,6 +32,15 @@ class IconPickerField extends ColorPickerField
         return $this;
     }
 
+    public function getSchemaDataDefaults()
+    {
+        $schemaData = parent::getSchemaDataDefaults();
+
+        $schemaData['searchPlaceholder'] = 'Search icons';
+
+        return $schemaData;
+    }
+
     public function getSource()
     {
         $source = $this->source;

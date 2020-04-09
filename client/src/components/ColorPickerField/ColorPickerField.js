@@ -51,7 +51,7 @@ class ColorPickerField extends Component {
   }
 
   renderPopover() {
-    const { PopoverOptionSetComponent, colors, name } = this.props;
+    const { PopoverOptionSetComponent, colors, name, searchPlaceholder } = this.props;
     const { isOpen, value } = this.state;
 
     const buttonContent = (color) => [
@@ -86,7 +86,7 @@ class ColorPickerField extends Component {
     return (
       <PopoverOptionSetComponent
         buttons={buttons}
-        searchPlaceholder={i18n._t('ColorPickerField.SEARCH_BLOCKS', 'Search colors')}
+        searchPlaceholder={searchPlaceholder || i18n._t('ColorPickerField.SEARCH_BLOCKS', 'Search colors')}
         className="color-picker-field-popover"
         placement="bottom-start"
         onSearch={handleSearch}
@@ -119,6 +119,7 @@ ColorPickerField.proptypes = {
   })),
   name: PropTypes.string,
   value: PropTypes.string,
+  searchPlaceholder: PropTypes.string,
 };
 
 export default inject(
