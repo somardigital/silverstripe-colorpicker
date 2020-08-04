@@ -82,7 +82,7 @@ SilverStripe\Admin\LeftAndMain:
         - app/client/dist/css/my_icons.css
 ```
 
-Example of `ColorPickerField` use:
+Example of `IconPickerField` use:
 
 ```php
     public function getCMSFields()
@@ -92,7 +92,7 @@ Example of `ColorPickerField` use:
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                ColorPickerField::create(
+                IconPickerField::create(
                     'MyIconField',
                     _t(
                         __CLASS__ . '.MyIconField',
