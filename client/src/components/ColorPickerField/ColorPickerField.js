@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { inject } from 'lib/Injector';
 import i18n from 'i18n';
 import { Button } from 'reactstrap';
+import fieldHolder from 'components/FieldHolder/FieldHolder'
 
 class ColorPickerField extends Component {
   constructor(props) {
@@ -71,11 +72,15 @@ class ColorPickerField extends Component {
         'color-picker-field-popover__option--selected': color.CSSClass === value
       }],
       text: color.Title,
-      onClick: () => {
+      onClick: (e) => {
         this.handleToggle();
         this.setState({
           value: color.CSSClass,
         });
+
+        if (typeof this.props.onChange === 'function') {
+          this.props.onChange(e, { id: this.props.id, value: color.CSSClass })
+        }
       },
     }));
 
@@ -126,4 +131,4 @@ export default inject(
   ['PopoverOptionSet'],
   (PopoverOptionSetComponent) => ({ PopoverOptionSetComponent }),
   () => 'ColorPickerField'
-)(ColorPickerField);
+)(fieldHolder(ColorPickerField));
