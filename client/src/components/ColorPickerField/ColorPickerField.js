@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { inject } from 'lib/Injector';
 import i18n from 'i18n';
 import { Button } from 'reactstrap';
-import fieldHolder from 'components/FieldHolder/FieldHolder'
+import fieldHolder from 'components/FieldHolder/FieldHolder';
 
 class ColorPickerField extends Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class ColorPickerField extends Component {
         });
 
         if (typeof this.props.onChange === 'function') {
-          this.props.onChange(e, { id: this.props.id, value: color.CSSClass })
+          this.props.onChange(e, { id: this.props.id, value: color.CSSClass });
         }
       },
     }));
